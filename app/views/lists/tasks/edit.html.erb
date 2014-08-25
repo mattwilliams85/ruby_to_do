@@ -2,16 +2,23 @@
   <div class="col-md-6">
 
     <h2>Here are your lists:</h2>
-      <% if @lists == nil %>
-        <h4> None </h4>
-      <% end %>
-      <ul>
-        <% @lists.each do |list| %>
-          <li class="list">
-            <a href="/lists/tasks/<%= list.id %>"> <%= list.name %></a>
-          </li>
-        <% end %>
-      </ul>
+     <% if @lists == nil %>
+       <h4> None </h4>
+     <% end %>
+     <table>
+       <% @lists.each do |list| %>
+         <tr>
+           <td>
+             <a href="/lists/tasks/<%= list.id %>" class="list"> <%= list.name %></a>
+             <a href="/list/<%= list.id %>"
+               data-method="delete"
+               rel="nofollow">
+               <span class="glyphicon glyphicon-remove" id="delete">  </span>
+             </a>
+           </td>
+         </tr>
+       <% end %>
+     </table>
 
   </div>
 
@@ -53,7 +60,7 @@
             </a>
             </td>
           <% end %>
-          <% end %>
+        <% end %>
     </table>
 
     <form role="form" action="/tasks/<%= @list.id %>/<%= @task.id %>" method="post" class="forms">

@@ -46,7 +46,6 @@
               <span class="glyphicon glyphicon-remove" id="delete">  </span>
             </a>
           </td>
-        </tr>
           <% end %>
         <% end %>
           <% @list.tasks.each do |task| %>
@@ -61,7 +60,7 @@
             </a>
             </td>
           <% end %>
-          <% end %>
+        <% end %>
     </table>
 
     <form role="form" action="/tasks/<%= @list.id %>" method="post" class="forms">

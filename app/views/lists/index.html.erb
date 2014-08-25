@@ -33,8 +33,6 @@
   <h4 class="error" id="green"> List Saved! </h4>
 <% elsif @list.errors.any? %>
   <h4 class="error" id="red"> <%= @list.errors.full_messages.each {|message| puts message } %> </h4>
-  <% sleep(1) %>
-
 <% end %>
 
 </div>
