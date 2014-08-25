@@ -14,6 +14,21 @@
  *= require_self
  */
 
+.header {
+  background-color: gray;
+  padding:50px 0 5px 0;
+}
+
+h1 {
+  color:white;
+  margin-left:10%;
+  text-decoration: none
+}
+
+h2 {
+  text-decoration: underline
+}
+
 #main {
   padding-top:30px;
   width: 80%;
@@ -30,4 +45,20 @@
 
 .error {
   margin-left:40px;
+}
+
+.list {
+  font-size: 1.5em;
+}
+
+#new_list {
+  width:50%;
+}
+
+.forms {
+  margin-top:40px;
+}
+
+#return {
+  margin-top:20px;
 }

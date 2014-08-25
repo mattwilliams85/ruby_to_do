@@ -1,17 +1,27 @@
-<h1>Wikitaskia</h1>
+<div class="col-md-6">
 
-<h2>Here are your lists:</h2>
+  <h2>Here are your lists:</h2>
 
-<% if List.all.first == nil %>
-  <h4> None </h4>
-<% end %>
+  <% if @lists == nil %>
+    <h4> None </h4>
+  <% end %>
+  <ul>
+    <% @lists.each do |list| %>
+      <li class="list">
+        <a href="/lists/tasks/<%= list.id %>"> <%= list.name %></a>
+      </li>
+    <% end %>
+  </ul>
 
+  <form role="form" action="/lists" method="post" class="forms">
+    <div class="form-group">
+      <label name="new_list">New List:</label>
+      <input id="new_list" name="name" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary">Create!</button>
+  </form>
 
-<form action="/lists" method="post">
-  <label name="new_list">Name:</label>
-  <input id="new_list" name="name" type="text">
-  <button>Create List</button>
-</form>
+</div>
 
 <% if @list.persisted? %>
   <h4 class="error" id="green"> List Saved! </h4>

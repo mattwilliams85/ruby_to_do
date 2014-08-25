@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>Here are your lists:</h2>
+
+    <% if @lists == nil %>
+      <h4> None </h4>
+    <% else %>
+      <ul>
+        <% @lists.each do |list| %>
+          <li class="list">
+            <a href="/lists/tasks/<%= list.id %>"> <%= list.name %></a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <h2><%= @list.name %> tasks:</h2>
+      <% if @tasks == nil %>
+        <h4> None </h4>
+      <% end %>
+    <ul>
+      <% @tasks.each do |task| %>
+        <li class="task">
+          <a href="/tasks/tasks"> <%= task.name %></a>
+        </li>
+      <% end %>
+    </ul>
+
+    <form role="form" action="/tasks" method="post" class="forms">
+      <div class="form-group">
+        <label name="new_list">New Task:</label>
+        <input id="new_list" name="name" type="text" class="form-control">
+      </div>
+      <button class="btn btn-primary">Add Task!</button>
+    </form>
+
+    <a href="/"> <button id="return" class="btn btn-success">Return to Lists </button> </a>
+
+    <% if @task.persisted? %>
+      <h4 class="error" id="green"> Task Saved! </h4>
+    <% elsif @task.errors.any? %>
+      <h4 class="error" id="red"> <%= @task.errors.full_messages.each {|message| puts message } %> </h4>
+    <% end %>
+
+  </div>
+</div>
