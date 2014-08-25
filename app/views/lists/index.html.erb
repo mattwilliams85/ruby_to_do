@@ -12,3 +12,9 @@
   <input id="new_list" name="name" type="text">
   <button>Create List</button>
 </form>
+
+<% if @list.persisted? %>
+  <h4 class="error" id="green"> List Saved! </h4>
+<% elsif @list.errors.any? %>
+  <h4 class="error" id="red"> <%= @list.errors.full_messages.each {|message| puts message } %> </h4>
+<% end %>

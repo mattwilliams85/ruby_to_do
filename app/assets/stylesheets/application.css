@@ -19,3 +19,15 @@
   width: 80%;
   margin: auto;
 }
+
+#green {
+  color:green;
+}
+
+#red {
+  color:red;
+}
+
+.error {
+  margin-left:40px;
+}
