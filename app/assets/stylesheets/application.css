@@ -52,7 +52,7 @@ h2 {
 }
 
 #new_list {
-  width:50%;
+  width:30%;
 }
 
 .forms {
@@ -61,4 +61,16 @@ h2 {
 
 #return {
   margin-top:20px;
+}
+
+#task_item {
+  padding:10px;
+}
+
+#delete {
+  color:red;
+}
+
+#complete {
+  color:green;
 }

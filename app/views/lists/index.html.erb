@@ -1,17 +1,17 @@
-<div class="col-md-6">
 
-  <h2>Here are your lists:</h2>
+<div class="col-md-6"></div>
 
-  <% if @lists == nil %>
-    <h4> None </h4>
-  <% end %>
-  <ul>
-    <% @lists.each do |list| %>
-      <li class="list">
-        <a href="/lists/tasks/<%= list.id %>"> <%= list.name %></a>
-      </li>
+   <h2>Here are your lists:</h2>
+    <% if @lists == nil %>
+      <h4> None </h4>
     <% end %>
-  </ul>
+    <ul>
+      <% @lists.each do |list| %>
+        <li class="list">
+          <a href="/lists/tasks/<%= list.id %>"> <%= list.name %></a>
+        </li>
+      <% end %>
+    </ul>
 
   <form role="form" action="/lists" method="post" class="forms">
     <div class="form-group">
@@ -21,10 +21,11 @@
     <button class="btn btn-primary">Create!</button>
   </form>
 
-</div>
 
 <% if @list.persisted? %>
   <h4 class="error" id="green"> List Saved! </h4>
 <% elsif @list.errors.any? %>
   <h4 class="error" id="red"> <%= @list.errors.full_messages.each {|message| puts message } %> </h4>
 <% end %>
+
+</div>

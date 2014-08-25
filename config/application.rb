@@ -12,7 +12,7 @@ Bundler.require(*Rails.groups)
 
 module Wikipages
   class Application < Rails::Application
-
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
     config.action_controller.permit_all_parameters = true
   end
 end
