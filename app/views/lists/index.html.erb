@@ -1,0 +1,14 @@
+<h1>THIS IS A WEBPAGE yo</h1>
+
+<h2>Here are your lists:</h2>
+
+<% if List.all.first == nil %>
+  <h4> None </h4>
+<% end %>
+
+
+<form action="/lists" method="post">
+  <label name="new_list">Name:</label>
+  <input id="new_list" name="name" type="text">
+  <button>Create List</button>
+</form>
