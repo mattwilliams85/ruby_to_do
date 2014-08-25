@@ -43,5 +43,14 @@ class TasksController < ApplicationController
     render('lists/tasks/tasks.html.erb')
   end
 
+  def done
+    @list = List.find(params[:list_id])
+    @task = Task.find(params[:id])
+    @lists = List.all
+    @tasks = Task.all
+    @task.update(:completed => true)
+    render('lists/tasks/tasks.html.erb')
+  end
+
 end
 

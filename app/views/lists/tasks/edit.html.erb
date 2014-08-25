@@ -21,22 +21,39 @@
       <% if @tasks == nil %>
         <h4> None </h4>
       <% end %>
-    <table>
-      <% @tasks.each do |task| %>
+     <table>
+      <% @list.tasks.each do |task| %>
         <tr>
-          <a>
-            <span class="glyphicon glyphicon-ok" id="complete">  </span>
-          </a>
-          <a>
-            <span id="task_item"><%= task.name %></span>
-          </a>
-          <a href="/tasks/<%= @list.id%>/<%= task.id %>"
-            data-method="delete"
-            rel="nofollow">
-            <span class="glyphicon glyphicon-remove" id="delete">  </span>
-          </a>
+          <% if task.completed == false %>
+          <td>
+            <a href="/tasks/done/<%= @list.id%>/<%= task.id %>">
+              <span class="glyphicon glyphicon-ok" id="complete">  </span>
+            </a>
+            <a href="/tasks/edit/<%= @list.id%>/<%= task.id %>">
+              <span class="task_item"><%= task.name %></span>
+            </a>
+            <a href="/tasks/<%= @list.id%>/<%= task.id %>"
+              data-method="delete"
+              rel="nofollow">
+              <span class="glyphicon glyphicon-remove" id="delete">  </span>
+            </a>
+          </td>
         </tr>
-      <% end %>
+          <% end %>
+        <% end %>
+          <% @list.tasks.each do |task| %>
+            <tr>
+              <% if task.completed == true %>
+              <td>
+              <span class="task_item" id="done"><%= task.name %></span>
+              <a href="/tasks/<%= @list.id%>/<%= task.id %>"
+              data-method="delete"
+              rel="nofollow">
+              <span class="glyphicon glyphicon-remove" id="delete">  </span>
+            </a>
+            </td>
+          <% end %>
+          <% end %>
     </table>
 
     <form role="form" action="/tasks/<%= @list.id %>/<%= @task.id %>" method="post" class="forms">

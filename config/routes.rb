@@ -7,5 +7,6 @@ Wikipages::Application.routes.draw do
   match('tasks/edit/:list_id/:id', {:via => :get, :to => 'tasks#edit'})
   match('tasks/:list_id/:id', {:via => [:patch, :put], :to => 'tasks#update'})
   match('list/:id', {:via => :delete, :to => 'lists#destroy'})
+  match('tasks/done/:list_id/:id', {:via => :get, :to => 'tasks#done'})
 end
 
