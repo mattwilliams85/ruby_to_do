@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @lists = List.all
     @tasks = Task.all
 
-    @task = Task.create(:name => params[:name],:completed => :false)
+    @task = Task.create(:name => params[:name],:completed => :false, :list_id => @list.id)
     render('lists/tasks/tasks.html.erb')
   end
 

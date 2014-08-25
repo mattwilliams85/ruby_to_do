@@ -6,36 +6,45 @@
       <% if @lists == nil %>
         <h4> None </h4>
       <% end %>
-      <ul>
-        <% @lists.each do |list| %>
-          <li class="list">
-            <a href="/lists/tasks/<%= list.id %>"> <%= list.name %></a>
-          </li>
-        <% end %>
-      </ul>
+      <table>
+      <% @lists.each do |list| %>
+        <tr>
+          <td>
+            <a href="/lists/tasks/<%= list.id %>" class="list"> <%= list.name %></a>
+            <a href="/list/<%= list.id %>"
+              data-method="delete"
+              rel="nofollow">
+              <span class="glyphicon glyphicon-remove" id="delete">  </span>
+            </a>
+          </td>
+        </tr>
+      <% end %>
+    </table>
 
   </div>
 
 
   <div class="col-md-6">
     <h2><%= @list.name %> tasks:</h2>
-      <% if @tasks == nil %>
+      <% if @list.tasks.first == nil %>
         <h4> None </h4>
       <% end %>
     <table>
-      <% @tasks.each do |task| %>
+      <% @list.tasks.each do |task| %>
         <tr>
-          <a>
-            <span class="glyphicon glyphicon-ok" id="complete">  </span>
-          </a>
-          <a href="/tasks/edit/<%= @list.id%>/<%= task.id %>">
-            <span id="task_item"><%= task.name %></span>
-          </a>
-          <a href="/tasks/<%= @list.id%>/<%= task.id %>"
-            data-method="delete"
-            rel="nofollow">
-            <span class="glyphicon glyphicon-remove" id="delete">  </span>
-          </a>
+          <td>
+            <a>
+              <span class="glyphicon glyphicon-ok" id="complete">  </span>
+            </a>
+            <a href="/tasks/edit/<%= @list.id%>/<%= task.id %>">
+              <span id="task_item"><%= task.name %></span>
+            </a>
+            <a href="/tasks/<%= @list.id%>/<%= task.id %>"
+              data-method="delete"
+              rel="nofollow">
+              <span class="glyphicon glyphicon-remove" id="delete">  </span>
+            </a>
+          </td>
         </tr>
       <% end %>
     </table>
