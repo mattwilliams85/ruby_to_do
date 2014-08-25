@@ -23,12 +23,12 @@
     <ul>
       <% @tasks.each do |task| %>
         <li class="task">
-          <a href="/tasks/tasks"> <%= task.name %></a>
+          <%= task.name %>
         </li>
       <% end %>
     </ul>
 
-    <form role="form" action="/tasks" method="post" class="forms">
+    <form role="form" action="/tasks/<%= @list.id %>" method="post" class="forms">
       <div class="form-group">
         <label name="new_list">New Task:</label>
         <input id="new_list" name="name" type="text" class="form-control">

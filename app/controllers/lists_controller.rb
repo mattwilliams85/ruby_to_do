@@ -6,7 +6,7 @@ class ListsController < ApplicationController
     render('lists/index.html.erb')
   end
 
-  def saved
+  def create
     @list = List.create(:name => params[:name])
     render('lists/index.html.erb')
   end
